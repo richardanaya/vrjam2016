@@ -5,12 +5,20 @@
   <body>
     <a-scene>
       <a-assets>
-        <a-asset-item id="cat" src="cat.dae"></a-asset-item>
+        <a-asset-item id="tiger" src="cat.dae"></a-asset-item>
+        <a-asset-item id="turtle" src="cat.dae"></a-asset-item>
+        <a-asset-item id="rabbit" src="cat.dae"></a-asset-item>
+        <a-asset-item id="bar" src="bar.dae"></a-asset-item>
       </a-assets>
       <a-box color="#78dd37" opacity="0.8" position="0 0 0" width="1000" depth="1000" height=".1"></a-box>
-      <a-box color="red" position="2 2 0" width=".1" depth=".1" height=".1"></a-box>
-      <a-entity collada-model="#cat" scale=".3 .3 .3" position="3 1 0"></a-entity>
+      <a-entity collada-model="#tiger" scale=".3 .3 .3" position="3 1 -4"></a-entity>
+      <a-entity id="tiger-votes" collada-model="#bar" scale="1 1 1" position="3 .2 -3.5"></a-entity>
+      <a-entity collada-model="#turtle" scale=".3 .3 .3" position="1 1 -4"></a-entity>
+      <a-entity id="turtle-votes" collada-model="#bar" scale="1 1 1" position="1 .2 -3.5"></a-entity>
+      <a-entity collada-model="#rabbit" scale=".3 .3 .3" position="-1 1 -4"></a-entity>
+      <a-entity id="rabbit-votes" collada-model="#bar" scale="1 1 1" position="-1 .2 -3.5"></a-entity>
       <a-sky color="#88cdea"></a-sky>
     </a-scene>
   </body>
+  <script src="anim.js"></script>
 </html>
