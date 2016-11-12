@@ -2,9 +2,15 @@ var voteSound = new Howl({
   src: ['vote.mp3']
 });
 
-
-
-document.body.querySelector(".vote-button")
+var btns =document.querySelectorAll('.vote-button');
+for(var i=0;i<btns.length;i++){
+  btns[i].addEventListener("click",function(e){
+    if(!voting.didVote()){
+      voteSound.play();
+      voting.vote(e.target.parentNode.id);
+    }
+  })
+}
 
 	var counter = document.querySelector("#turtle-counter");
 	var myIndex = 1;
