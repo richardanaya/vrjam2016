@@ -16,13 +16,15 @@
         <a-asset-item id="turtle-model" src="turtle.dae"></a-asset-item>
         <a-asset-item id="vote-model" src="vote.dae"></a-asset-item>
         <a-asset-item id="bar" src="bar.dae"></a-asset-item>
+        <a-asset-item id="chat-model" src="chat.dae"></a-asset-item>
       </a-assets>
       <a-entity loader="src: url(steve/models/turtle.obj); format: obj" rotation="0 -45 0" position="3.11 0.405 -1.02" material="shader: standard; repeat: 1; color: #CCCCCC; metalness: 0; roughness: 0.5; transparent: false; opacity: 1; side: double; "></a-entity>
       <a-entity loader="src: url(steve/models/Dog.obj); format: obj" position="0 0 -1.28" material="shader: standard; repeat: 1; color: #CCCCCC; metalness: 0; roughness: 0.5; transparent: false; opacity: 1; side: double; "></a-entity>
       <a-entity loader="src: url(steve/models/bear.obj); format: obj" rotation="0 -315 0" position="-2.556382 0.42 -0.390323" material="shader: standard; repeat: 1; color: #CCCCCC; metalness: 0; roughness: 0.5; transparent: false; opacity: 1; side: double; "></a-entity>
       <a-box color="#78dd37" opacity="0.8" position="0 0 0" width="1000" depth="1000" height=".1"></a-box>
-      <!--       Turtle Facts -->      
-      <a-entity id="turtle-facts-text" bmfont-text="text: I'm Turtle.; fnt:testFont.fnt; fntImage:testFont.png" position="2 2 -4"></a-entity>
+      <!--       Turtle Facts -->
+      <a-entity id="chat" collada-model="#chat-model" scale="1.2 1 .9" position="3.6 2.5 -4"></a-entity>
+      <a-entity id="turtle-facts-text" bmfont-text="text: I'm Turtle.; fnt:testFont.fnt; fntImage:testFont.png; lineHeight:100" position="2 2 -4"></a-entity>
 
       <a-entity id="bear" collada-model="#bear-model" scale=".3 .3 .3" position="-1 1 -2">
         <a-entity class="vote-button" collada-model="#vote-model" scale=".5 .5 .5" position="0 0 2"></a-entity>
