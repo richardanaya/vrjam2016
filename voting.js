@@ -1,8 +1,8 @@
 (function(){
   var votes = {
-    turtle: 3,
-    tiger: 6,
-    rabbit: 5
+    bear: 3,
+    dog: 6,
+    turtle: 5
   };
 
   var listener = null;
