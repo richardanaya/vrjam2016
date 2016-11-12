@@ -7,7 +7,7 @@
 
   var users = 0;
 
-if(this.firebase){
+if(window.firebase){
   var votesRef = firebase.database().ref('votes');
   var usersRef = firebase.database().ref('users');
   votesRef.on('value', function(snapshot) {
@@ -35,10 +35,9 @@ if(this.firebase){
 
   function vote(animal){
     if(voted){return;}
-    votes[animal]++
-    listener(votes);
     voted = true;
-    if(this.firebase){
+    if(window.firebase){
+      votes[animal]++
       votesRef.set(votes);
     }
   }
