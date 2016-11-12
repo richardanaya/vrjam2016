@@ -12,14 +12,15 @@ for(var i=0;i<btns.length;i++){
   })
 }
 
-	var counter = document.querySelector("#turtle-counter");
+//Turtle Facts Counter
+	var counter = document.querySelector("#turtle-facts-text");
 	var myIndex = 1;
-	var turtleFacts = ["I have a hard shell.\nHard shells are STRONG!", "I'm slow to act.\nI don't jump the gun on big decisions!", "Green is a power color."];
+	var turtleFacts = ["I have a hard shell.\nHard shells\nare STRONG!", "I'm slow to act.\nI don't jump\nthe gun on\nbig decisions!", "Green is a\npower color."];
 
-document.body.querySelector("#turtle-counter").addEventListener("click", function(){
-	var fact = turtleFacts[myIndex++%turtleFacts.length];
-	counter.setAttribute("bmfont-text", "text:" + fact);
-})
+	document.body.querySelector("#turtle-facts-text").addEventListener("click", function(){
+		var fact = turtleFacts[myIndex++%turtleFacts.length];
+		counter.setAttribute("bmfont-text", "text:" + fact + "; fnt:testFont.fnt; fntImage:testFont.png");
+	})
 
 function updateVotes(votes){
   document.body.querySelector("#bear .votes").setAttribute('scale', {x: 1, y: votes.bear/10, z: 1});
