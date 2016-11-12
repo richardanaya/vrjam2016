@@ -1,0 +1,46 @@
+#overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.3);
+  z-index: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#overlay h1 {
+    font-family: sans-serif;
+    letter-spacing: .02em;
+    font-size: 64pt;
+    color: #fff;
+    text-transform: uppercase;
+    margin: 20px;
+}
+
+#overlay p {
+    font-family: sans-serif;
+    letter-spacing: .08em;
+    font-size: 12pt;
+    color: #fff;
+}
+
+#overlay .link-button {
+    font-family: sans-serif;
+    width: 200px;
+    margin-top: 20px;
+    padding: 20px;
+    font-size: 12pt;
+    background-color: white;
+    border: 0;
+    color: #000;
+    text-decoration: none;
+}
+
+#overlay .link-button:hover {
+    background-color: #eee;
+}
