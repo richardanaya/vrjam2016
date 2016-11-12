@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <script src="aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <a-asset-item id="cat" src="cat.dae"></a-asset-item>
+      </a-assets>
+      <a-box color="#78dd37" opacity="0.8" position="0 0 0" width="1000" depth="1000"></a-box>
+      <a-entity collada-model="#cat" scale=".3 .3 .3" position="3 1 0"></a-entity>
+      <a-sky color="#88cdea"></a-sky>
+    </a-scene>
+  </body>
+</html>
