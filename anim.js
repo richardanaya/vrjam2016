@@ -2,13 +2,7 @@ var voteSound = new Howl({
   src: ['vote.mp3']
 });
 
-var btns =document.querySelectorAll('.vote-button');
-for(var i=0;i<btns.length;i++){
-  btns[i].addEventListener("click",function(e){
-    voteSound.play();
-    voting.vote(e.target.parentNode.id);
-  })
-}
+
 
 document.body.querySelector(".vote-button")
 

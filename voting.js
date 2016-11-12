@@ -5,11 +5,19 @@
     turtle: 5
   };
 
+  var voted = false;
+
   var listener = null;
 
   function vote(animal){
+    if(voted){return;}
     votes[animal]++
     listener(votes);
+    voted = true;
+  }
+
+  function didVote(){
+    return voted;
   }
 
   function getVotes(){
@@ -23,6 +31,7 @@
   window.voting = {
     vote:vote,
     getVotes:getVotes,
-    onVotesUpdate:onVotesUpdate
+    onVotesUpdate:onVotesUpdate,
+    didVote:didVote
   }
 })();
