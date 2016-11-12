@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hello cats!</title>
+    <meta name="description" content="Hello cats!">
+    <script src="https://aframe.io/releases/latest/aframe.js"></script>
+  </head>
+  <body>
+    <a-scene stats="true">
+<a-sky color="#000149" ></a-sky>
+      <a-entity geometry="primitive: box; width: 12; height: 5; depth: 0.4" position="0 6.498 -8.939" material="shader: standard; repeat: 1; color: #FFFFFF; metalness: 0; roughness: 0.5; transparent: false; opacity: 1; side: double; "></a-entity>
+      <a-entity geometry="primitive: box; width: 8; height: 0.4; depth: 4" rotation="0 -180 0" position="0 0.2 -1.42" material="shader: standard; repeat: 1; color: #FFFFFF; metalness: 0; roughness: 0.5; transparent: false; opacity: 1; side: double; "></a-entity>
+      <a-entity loader="src: url(models/Cat_Lite.obj); format: obj" scale="40.00012 40.00015 50.00018" rotation="270 -315 0" position="-3.03 0.493 -0.9348513" material="shader: standard; repeat: 1; color: #98FFFF; metalness: 0; roughness: 0.5; transparent: false; opacity: 1; side: double; "></a-entity>
+      <a-entity loader="src: url(models/Cat_Lite.obj); format: obj" scale="50.00014 50.00018 50.00018" rotation="270 -45 0" position="3.27 0.513 -1.171436" material="shader: flat; repeat: 1; color: #FF7070; transparent: true; opacity: 0.641; "></a-entity>
+      <a-entity loader="src: url(models/Cat_Lite.obj); format: obj" scale="50.00014 50.00019 50.0002" rotation="270 0 0" position="-0.002031088 0.513 -1.65463" material="shader: standard; repeat: 1; color: #FDFFAA; metalness: 0; roughness: 0.5; transparent: false; opacity: 1; side: double; "></a-entity>
+      <a-entity geometry="primitive: box; width: 0.8000001; height: 1; depth: 0.8000001" rotation="0 -225 0" position="2.2 0.9 0" material="shader: standard; repeat: 1; color: #7F5B25; metalness: 0; roughness: 0.5; transparent: false; opacity: 1; side: double; "></a-entity>
+      <a-entity geometry="primitive: box; width: 0.8000001; height: 1; depth: 0.8000001" rotation="0 -135 0" position="-2.2 0.9 0" material="shader: standard; repeat: 1; color: #7F5B25; metalness: 0; roughness: 0.5; transparent: false; opacity: 1; side: double; "></a-entity>
+      <a-camera position="0 1.5 5.5"  cursor-color=#FFFF58 wasd-controls-enabled=true fov=60 near=0.3 far=10000 cursor-maxdistance=1000 cursor-offset=1 cursor-opacity=1 cursor-scale0.5 look-controls-enabled=true></a-camera>
+      <a-light type=directional; intensity=1 color=#FFF4D6 position="-0.3213942 0.24134 0.9156753" ></a-light>
+      <a-entity geometry="primitive: plane; width:20; height:10" rotation="-90 -180 0" material="shader: standard; repeat: 1; color: #98FFFF; metalness: 0; roughness: 0.5; transparent: false; opacity: 1; side: double; "></a-entity>
+      <a-entity geometry="primitive: box; width: 0.8; height: 1; depth: 0.8" rotation="0 -180 0" position="0 0.9 0" material="shader: standard; repeat: 1; color: #7F5B25; metalness: 0; roughness: 0.5; transparent: false; opacity: 1; side: double; "></a-entity>
+    </a-scene stats="true">
+  </body>
+</html>
