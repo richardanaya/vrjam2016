@@ -1,9 +1,17 @@
 (function(){
   var votes = {
-    bear: 3,
-    dog: 6,
-    turtle: 5
+    bear: 0,
+    dog: 0,
+    turtle: 0
   };
+
+if(this.firebase){
+  var votesRef = firebase.database().ref('votes');
+  votesRef.on('value', function(snapshot) {
+    votes = snapshot.val();
+    listener(votes);
+  });
+}
 
   var voted = false;
 
@@ -14,6 +22,9 @@
     votes[animal]++
     listener(votes);
     voted = true;
+    if(this.firebase){
+      votesRef.set(votes);
+    }
   }
 
   function didVote(){

@@ -1,7 +1,6 @@
 <html>
   <head>
     <script src="aframe.min.js"></script>
-    <script src="voting.js"></script>
     <script src="howler.min.js"></script>
   </head>
   <body>
@@ -36,5 +35,20 @@
       <a-sky color="#88cdea"></a-sky>
     </a-scene>
   </body>
+  <script src="https://www.gstatic.com/firebasejs/3.6.0/firebase.js"></script>
+  <script>
+  if(this.firebase){
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyA01rpbiq3oBk_HO5bgUb34LSO9C0y_1Co",
+      authDomain: "animalvote-d8805.firebaseapp.com",
+      databaseURL: "https://animalvote-d8805.firebaseio.com",
+      storageBucket: "animalvote-d8805.appspot.com",
+      messagingSenderId: "335072447545"
+    };
+    firebase.initializeApp(config);
+  }
+  </script>
+  <script src="voting.js"></script>
   <script src="anim.js"></script>
 </html>
