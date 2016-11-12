@@ -28,3 +28,8 @@ function updateVotes(votes){
 }
 updateVotes(voting.getVotes());
 voting.onVotesUpdate(updateVotes);
+
+function onUserJoined(ct){
+  console.log(ct);
+}
+voting.onUsers(onUserJoined);
