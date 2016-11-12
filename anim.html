@@ -2,6 +2,7 @@
   <head>
     <script src="aframe.min.js"></script>
     <script src="voting.js"></script>
+    <script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script>        
   </head>
   <body>
     <a-scene>
@@ -15,6 +16,8 @@
         <a-asset-item id="bar" src="bar.dae"></a-asset-item>
       </a-assets>
       <a-box color="#78dd37" opacity="0.8" position="0 0 0" width="1000" depth="1000" height=".1"></a-box>
+<!--       Add Text -->
+<!--       <a-entity bmfont-text="text: HELLO!; color: #333" position="0.8 3 -4"></a-entity>       -->
       <a-entity id="tiger" collada-model="#tiger-model" scale=".3 .3 .3" position="3 1 -4"></a-entity>
       <a-entity id="tiger-votes" collada-model="#bar" scale="1 1 1" position="3 .2 -3.5"></a-entity>
       <a-entity id="turtle" collada-model="#turtle-model" scale=".3 .3 .3" position="1 1 -4"></a-entity>
