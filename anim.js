@@ -32,7 +32,7 @@ function candidateChatter () {
 		if (i < 3) {
 			candidateChatter();
 		}
-	}, 3000)
+	}, 3500)
 }
 
 candidateChatter();
