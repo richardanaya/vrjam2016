@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <script src="../aframe.min.js"></script>
+    <script src="../voting.js"></script>
+    <script src="../howler.min.js"></script>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body>
+    <a-scene>
+      <a-entity>
+        <a-camera></a-camera>
+      </a-entity>
+
+      <a-assets>
+    <video id="videofile" autoplay loop="true" src="dog.mp4">
+      </a-assets>
+
+  <!-- Using the asset management system. -->
+  <a-video src="#videofile" scale="2 2 2" width="16" height="9" position="0 0 -20"></a-video>
+      <a-sky color="#88cdea"></a-sky>
+    </a-scene>
+  </body>
+  <script src="../anim.js"></script>
+</html>

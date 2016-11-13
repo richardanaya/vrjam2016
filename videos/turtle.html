@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <script src="../aframe.min.js"></script>
+    <script src="../voting.js"></script>
+    <script src="../howler.min.js"></script>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body>
+    <a-scene>
+      <a-entity>
+        <a-camera></a-camera>
+      </a-entity>
+
+      <a-assets>
+    <video id="turtle" autoplay loop="true" src="turtlevideo.mp4">
+      </a-assets>
+
+  <!-- Using the asset management system. -->
+  <a-video src="#turtle" scale="3 3 3" width="9" height="9" position="0 0 -20"></a-video>
+<!--
+  <a-video src="airbending.mp4"></a-video>
+-->
+      <a-sky color="#88cdea"></a-sky>
+    </a-scene>
+  </body>
+  <script src="../anim.js"></script>
+</html>
