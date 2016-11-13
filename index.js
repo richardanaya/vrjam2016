@@ -10,7 +10,7 @@ var voteSound = new Howl({
 var btns = document.querySelectorAll('.vote-button');
 for(var i=0;i<btns.length;i++){
   btns[i].addEventListener("click",function(e){
-  	document.body.querySelector("#star-explosion").setAttribute("particle-system","texture: cloud.png; opacity: 1; color: #D20000; maxParticleCount: 2800");
+  	document.body.querySelector("#star-explosion").setAttribute("particle-system","texture: cloud.png; opacity: 1; color: #8c0707; maxParticleCount: 2800");
     if(!voting.didVote()){
       voteSound.play();
       voting.vote(e.target.parentNode.id);
