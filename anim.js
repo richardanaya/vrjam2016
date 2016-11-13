@@ -61,21 +61,23 @@ function onUserJoined(ct){
 voting.onUsers(onUserJoined);
 
 document.body.querySelector("#bear").addEventListener("model-loaded",function(e){
-  var collada = e.detail.collada;
+  if(e.target.id == "bear"){
+    var collada = e.detail.collada;
 
-  dae = collada.scene;
-  skin = collada.skins[ 0 ];
-  animation = collada.animations[0];
+    dae = collada.scene;
+    skin = collada.skins[ 0 ];
+    animation = collada.animations[0];
 
-  dae.scale.x = dae.scale.y = dae.scale.z = 1;
+    dae.scale.x = dae.scale.y = dae.scale.z = 1;
 
-	dae.traverse( function ( child ) {
-		if ( child instanceof THREE.SkinnedMesh ) {
-			var animation = new THREE.Animation( child, child.geometry.animation  );
-			animation.play();
+    dae.traverse( function ( child ) {
+      if ( child instanceof THREE.SkinnedMesh ) {
+        var animation = new THREE.Animation( child, child.geometry.animation  );
+        animation.play();
 
-		}
-	});
+      }
+    });
+  }
 })
 
 var clock = new THREE.Clock();

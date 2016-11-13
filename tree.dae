@@ -5,8 +5,8 @@
       <author>Blender User</author>
       <authoring_tool>Blender 2.78.0 commit date:2016-10-24, commit time:12:20, hash:e8299c8</authoring_tool>
     </contributor>
-    <created>2016-11-13T13:51:37</created>
-    <modified>2016-11-13T13:51:37</modified>
+    <created>2016-11-13T13:49:27</created>
+    <modified>2016-11-13T13:49:27</modified>
     <unit name="meter" meter="1"/>
     <up_axis>Z_UP</up_axis>
   </asset>
@@ -26,7 +26,7 @@
               <color sid="diffuse">0.2979785 0.532743 0.03750401 1</color>
             </diffuse>
             <specular>
-              <color sid="specular">0 0 0 1</color>
+              <color sid="specular">0.1569564 0.5 0.01181254 1</color>
             </specular>
             <shininess>
               <float sid="shininess">50</float>
@@ -52,7 +52,7 @@
               <color sid="diffuse">0.5460472 0.4639663 0.4461241 1</color>
             </diffuse>
             <specular>
-              <color sid="specular">0 0 0 1</color>
+              <color sid="specular">0.5 0.5 0.5 1</color>
             </specular>
             <shininess>
               <float sid="shininess">50</float>
@@ -78,7 +78,7 @@
               <color sid="diffuse">0.1566049 0.2851271 0.6801247 1</color>
             </diffuse>
             <specular>
-              <color sid="specular">0 0 0 1</color>
+              <color sid="specular">0.5 0.5 0.5 1</color>
             </specular>
             <shininess>
               <float sid="shininess">50</float>
@@ -101,10 +101,10 @@
               <color sid="ambient">0 0 0 1</color>
             </ambient>
             <diffuse>
-              <color sid="diffuse">0.05156035 0.4259514 0.05347355 1</color>
+              <color sid="diffuse">0.01592131 0.1098792 0.01643851 1</color>
             </diffuse>
             <specular>
-              <color sid="specular">0 0 0 1</color>
+              <color sid="specular">0.5 0.5 0.5 1</color>
             </specular>
             <shininess>
               <float sid="shininess">50</float>
