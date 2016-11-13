@@ -1,3 +1,8 @@
+var musicSound = new Howl({
+  src: ['music.mp3']
+});
+musicSound.play()
+
 var voteSound = new Howl({
   src: ['vote.mp3']
 });
