@@ -18,35 +18,49 @@ for(var i=0;i<btns.length;i++){
   })
 }
 
-//Turtle Facts Counter
+//Candidate Facts
 	var counter = document.querySelector("#turtle-facts-text");
+	var chatCounter = document.querySelector("#chat-box");
 	var myIndex = 1;
 	var turtleFacts = ["Bears are\n\nstrong!", "Man's best\n\nfriend!", "Turtle\n\n power!"];
-	// var chatBoxPosition = ["3.6 2.5 -4", "", ""];
-	var chatTextPosition = ["-11 2 0", "-5 2 0", "-2 2 0"];
+	var chatBoxPosition = ["-8.7 4 -1", "-2.2 1 -1", "-1 0.4 -1"];
+	var chatTextPosition = ["-9.8 3.2 0", "-4.6 .7 0", "-3.7 0.3 0"];
 
 var i = 0;
+
 function candidateChatter () {
 	setTimeout(function () {
 	var fact = turtleFacts[i];
 		var position = chatTextPosition[i];
+		var bubblePosition = chatBoxPosition[i];
 		counter.removeAttribute("bmfont-text", "text:");
 		counter.setAttribute("bmfont-text", "text:" + fact + "; fnt:testFont.fnt; fntImage:testFont.png; align:center;");
+		counter.setAttribute("scale", ".8 .8 .8")
 		counter.setAttribute("position", position);
+		chatCounter.setAttribute("material", "color: #429ef4;");
+		chatCounter.setAttribute("obj-model", "obj: #chat-obj;");
+		chatCounter.setAttribute("scale", "1 1 .9");
+		chatCounter.setAttribute("position", bubblePosition);
 		i++;
 		if (i < 3) {
 			candidateChatter();
+		} else {
+			clearChatter();
 		}
 	}, 3500)
 }
 
+function clearChatter() {
+	setTimeout(function () {
+		var elemChat = document.getElementById("chat-box");
+ 		elemChat.parentElement.removeChild(elemChat);
+		var elemText = document.getElementById("turtle-facts-text");
+ 		elemText.parentElement.removeChild(elemText);			 			
+	}, 3500);
+}
+
 candidateChatter();
 
-// position=
-	// document.body.querySelector("#chat-box").addEventListener("click", function(){
-	// 	var fact = turtleFacts[myIndex++%turtleFacts.length];
-	// 	counter.setAttribute("bmfont-text", "text:" + fact + "; fnt:testFont.fnt; fntImage:testFont.png;");
-	// })
 
 function onUserJoined(ct){
   console.log(ct);
