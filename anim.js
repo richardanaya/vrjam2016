@@ -80,6 +80,26 @@ document.body.querySelector("#bear").addEventListener("model-loaded",function(e)
   }
 })
 
+document.body.querySelector("#dog").addEventListener("model-loaded",function(e){
+  if(e.target.id == "dog"){
+    var collada = e.detail.collada;
+
+    dae = collada.scene;
+    skin = collada.skins[ 0 ];
+    animation = collada.animations[0];
+
+    dae.scale.x = dae.scale.y = dae.scale.z = 1;
+
+    dae.traverse( function ( child ) {
+      if ( child instanceof THREE.SkinnedMesh ) {
+        var animation = new THREE.Animation( child, child.geometry.animation  );
+        animation.play();
+
+      }
+    });
+  }
+})
+
 var clock = new THREE.Clock();
 window.setInterval(function(){
     THREE.AnimationHandler.update( clock.getDelta()/60 );
