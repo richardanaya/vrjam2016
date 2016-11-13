@@ -15,9 +15,9 @@ for(var i=0;i<btns.length;i++){
 //Turtle Facts Counter
 	var counter = document.querySelector("#turtle-facts-text");
 	var myIndex = 1;
-	var turtleFacts = ["I have a hard shell.\nHard shells\nare STRONG!", "I'm slow to act.\nI don't jump\nthe gun on\nbig decisions!", "Green is a\npower color."];
+	var turtleFacts = ["Hard shells\n\nare STRONG!", "Turtle\n\nPower!", "Green is\n\ngreat!"];
 
-	document.body.querySelector("#chat").addEventListener("click", function(){
+	document.body.querySelector("#chat-box").addEventListener("click", function(){
 		var fact = turtleFacts[myIndex++%turtleFacts.length];
 		counter.setAttribute("bmfont-text", "text:" + fact + "; fnt:testFont.fnt; fntImage:testFont.png;");
 	})
