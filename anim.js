@@ -24,7 +24,7 @@ for(var i=0;i<btns.length;i++){
 	var myIndex = 1;
 	var turtleFacts = ["Bears are\n\nstrong!", "Man's best\n\nfriend!", "Turtle\n\n power!"];
 	var chatBoxPosition = ["-8.7 4 -1", "-2.2 1 -1", "-1 0.4 -1"];
-	var chatTextPosition = ["-9.8 3.2 0", "-4.6 .7 0", "-3.7 0.3 0"];
+	var chatTextPosition = ["-10.1 3.2 0", "-4.5 .7 0", "-3.6 0.3 0"];
 
 var i = 0;
 
