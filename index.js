@@ -97,3 +97,16 @@ var clock = new THREE.Clock();
 window.setInterval(function(){
     THREE.AnimationHandler.update( clock.getDelta()/60 );
 },1000/60)
+
+document.getElementById("enter-button").addEventListener('click', function() {
+  window.userActive = true;
+  // remove the overlay div
+  document.getElementById("overlay").remove();
+  // change camera position and remove animations
+  document.getElementById("camera").setAttribute('position', '0 -1 0');
+  document.getElementById("camera").setAttribute('rotation', '0 0 0');
+  document.getElementById("camera-animation-1").remove();
+  document.getElementById("camera-animation-2").remove();
+  // add the cardboard icon
+  document.getElementById("scene").removeAttribute("vr-mode-ui");
+});
