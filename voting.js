@@ -36,6 +36,7 @@ if(window.firebase){
   function vote(animal){
     if(voted){return;}
     voted = true;
+    document.body.querySelector("#ivoted-obj").setAttribute("visible",true)
     if(window.firebase){
       votes[animal]++
       votesRef.set(votes);
