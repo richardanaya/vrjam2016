@@ -10,7 +10,7 @@ var voteSound = new Howl({
 var btns =document.querySelectorAll('.vote-button');
 for(var i=0;i<btns.length;i++){
   btns[i].addEventListener("click",function(e){
-  	document.body.querySelector("#star-explosion").setAttribute("particle-system","texture: cloud.png; opacity: 1; color: #D20000; maxParticleCount: 800");
+  	document.body.querySelector("#star-explosion").setAttribute("particle-system","texture: cloud.png; opacity: 1; color: #D20000; maxParticleCount: 2800");
     if(!voting.didVote()){
       voteSound.play();
       voting.vote(e.target.parentNode.id);
@@ -21,12 +21,32 @@ for(var i=0;i<btns.length;i++){
 //Turtle Facts Counter
 	var counter = document.querySelector("#turtle-facts-text");
 	var myIndex = 1;
-	var turtleFacts = ["Hard shells\n\nare STRONG!", "Turtle\n\nPower!", "Green is\n\ngreat!"];
+	var turtleFacts = ["Bears are\n\nstrong!", "Man's best\n\nfriend!", "Turtle\n\n power!"];
+	// var chatBoxPosition = ["3.6 2.5 -4", "", ""];
+	var chatTextPosition = ["-11 2 0", "-5 2 0", "-2 2 0"];
 
-	document.body.querySelector("#chat-box").addEventListener("click", function(){
-		var fact = turtleFacts[myIndex++%turtleFacts.length];
-		counter.setAttribute("bmfont-text", "text:" + fact + "; fnt:testFont.fnt; fntImage:testFont.png;");
-	})
+var i = 0;
+function candidateChatter () {
+	setTimeout(function () {
+	var fact = turtleFacts[i];
+		var position = chatTextPosition[i];
+		counter.removeAttribute("bmfont-text", "text:");
+		counter.setAttribute("bmfont-text", "text:" + fact + "; fnt:testFont.fnt; fntImage:testFont.png; align:center;");
+		counter.setAttribute("position", position);
+		i++;
+		if (i < 3) {
+			candidateChatter();
+		}
+	}, 3000)
+}
+
+candidateChatter();
+
+// position=
+	// document.body.querySelector("#chat-box").addEventListener("click", function(){
+	// 	var fact = turtleFacts[myIndex++%turtleFacts.length];
+	// 	counter.setAttribute("bmfont-text", "text:" + fact + "; fnt:testFont.fnt; fntImage:testFont.png;");
+	// })
 
 function updateVotes(votes){
   var MAX_HEIGHT = 3;
