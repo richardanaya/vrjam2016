@@ -39,8 +39,14 @@
     border: 0;
     color: #000;
     text-decoration: none;
+    cursor: pointer;
+    outline: none;
 }
 
 #overlay .link-button:hover {
     background-color: #eee;
+}
+
+#overlay .link-button:active {
+    background-color: #ddd;
 }
