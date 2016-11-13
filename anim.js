@@ -23,12 +23,36 @@ for(var i=0;i<btns.length;i++){
 	})
 
 function updateVotes(votes){
-  document.body.querySelector("#bear .votes").setAttribute('scale', {x: 1, y: votes.bear/10, z: 1});
-  document.body.querySelector("#dog .votes").setAttribute('scale', {x: 1, y: votes.dog/10, z: 1});
-  document.body.querySelector("#turtle .votes").setAttribute('scale', {x: 1, y: votes.turtle/10, z: 1});
+  var MAX_HEIGHT = 3;
+  var totalVotes = votes.bear + votes.dog + votes.turtle;
+
+  var bearHeight = votes.bear / totalVotes * MAX_HEIGHT;
+  var dogHeight = votes.dog / totalVotes * MAX_HEIGHT;
+  var turtleHeight = votes.turtle / totalVotes * MAX_HEIGHT;
+
+  console.log("totalVotes", totalVotes);
+  console.log("bear percentage", Math.floor(votes.bear / totalVotes * 100));
+  console.log("dog percentage", Math.floor(votes.dog / totalVotes * 100));
+  console.log("turtle percentage", Math.floor(votes.turtle / totalVotes * 100));
+
+  document.body.querySelector("#bear .vote-graph").setAttribute('scale', {x: 1, y: bearHeight, z: 0});
+  document.body.querySelector("#dog .vote-graph").setAttribute('scale', {x: 1, y: dogHeight, z: 0});
+  document.body.querySelector("#turtle .vote-graph").setAttribute('scale', {x: 1, y: turtleHeight, z: 0});
 }
 updateVotes(voting.getVotes());
 voting.onVotesUpdate(updateVotes);
+
+
+function updateVoteGraph(){
+  var votes = {
+    bear: 5,
+    dog: 5,
+    turtle: 6
+  };
+
+}
+updateVoteGraph();
+
 
 function onUserJoined(ct){
   console.log(ct);
