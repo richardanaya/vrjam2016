@@ -25,6 +25,7 @@
         <a-asset-item id="chat-model" src="chat.dae"></a-asset-item>
         <a-asset-item id="chat-obj" src="chat.obj"></a-asset-item>
         <a-asset-item id="box-obj" src="box.obj"></a-asset-item>
+        <a-asset-item id="terrain" src="terrain.dae"></a-asset-item>
       </a-assets>
 
       <a-entity loader="src: url(steve/models/turtle.obj); format: obj" rotation="0 -45 0" position="3.11 0.405 -1.02" material="shader: standard; repeat: 1; color: #CCCCCC; metalness: 0; roughness: 0.5; transparent: false; opacity: 1; side: double; "></a-entity>
@@ -52,6 +53,10 @@
         <a-entity id="turtle-facts-text" bmfont-text="text: I'm Turtle.; fnt:testFont.fnt; fntImage:testFont.png;" position="2 2 -4"></a-entity>
       </a-entity>
       <a-sky color="#88cdea"></a-sky>
+      <a-entity material="shader: flat" collada-model="#terrain" scale="1 1 1" position="-0.94 -0.26 -1.55">
+      <a-entity light="color: #eee; type: ambient"></a-entity>
+      <a-entity light="color: #987; intensity: 1.5" position="-1 1 0"></a-entity>
+      <a-entity light="color: #789; intensity: 1.5; angle: 270" position="4.67 -1.71 0"></a-entity>
     </a-scene>
   </body>
   <script src="https://www.gstatic.com/firebasejs/3.6.0/firebase.js"></script>
