@@ -5,6 +5,7 @@ var voteSound = new Howl({
 var btns =document.querySelectorAll('.vote-button');
 for(var i=0;i<btns.length;i++){
   btns[i].addEventListener("click",function(e){
+  	document.body.querySelector("#star-explosion").setAttribute("particle-system","texture: cloud.png; color: #0000FF,#00FF00,#FF0000");
     if(!voting.didVote()){
       voteSound.play();
       voting.vote(e.target.parentNode.id);
