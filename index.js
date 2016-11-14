@@ -1,3 +1,7 @@
+function activateScene() {
+  candidateChatter();
+}
+
 var musicSound = new Howl({
   src: ['music.mp3']
 });
@@ -55,11 +59,11 @@ function clearChatter() {
 		var elemChat = document.getElementById("chat-box");
  		elemChat.parentElement.removeChild(elemChat);
 		var elemText = document.getElementById("turtle-facts-text");
- 		elemText.parentElement.removeChild(elemText);			 			
+ 		elemText.parentElement.removeChild(elemText);
 	}, 3500);
 }
 
-candidateChatter();
+
 
 
 function onUserJoined(ct){
@@ -113,7 +117,7 @@ window.setInterval(function(){
 },1000/60)
 
 document.getElementById("enter-button").addEventListener('click', function() {
-  window.userActive = true;
+  activateScene();
   // remove the overlay div
   document.getElementById("overlay").remove();
   // change camera position and remove animations
