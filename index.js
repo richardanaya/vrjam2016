@@ -65,14 +65,6 @@ function clearChatter() {
 	}, 3500);
 }
 
-
-
-
-function onUserJoined(ct){
-  console.log(ct);
-}
-voting.onUsers(onUserJoined);
-
 document.body.querySelector("#bear").addEventListener("model-loaded",function(e){
   if(e.target.id == "bear"){
     var collada = e.detail.collada;

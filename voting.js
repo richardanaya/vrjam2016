@@ -1,8 +1,6 @@
 (function(){
   var votesRef;
-  var usersRef;
   var voted = false;
-  var userslistener = null;
 
   var voteCounts = {
     bear: 0,
@@ -19,30 +17,14 @@
     }
   };
 
-  var users = 0;
-
   function initVoting() {
     if (window.firebase) {
       votesRef = firebase.database().ref('votes');
-      usersRef = firebase.database().ref('users');
 
       // add listener to Firebase votes update
       votesRef.on('value', function(snapshot) {
         votes = snapshot.val();
         onVotesUpdate(votes);
-      });
-
-      // add listener to Firebase users update
-      usersRef.once('value', function(snapshot) {
-        var c = snapshot.val();
-        users = c;
-        usersRef.set(c+1);
-      });
-      usersRef.on('value', function(snapshot) {
-        var c = snapshot.val();
-        if(userslistener){
-          userslistener(c);
-        }
       });
     }
   }
@@ -120,11 +102,6 @@
         "to": "1 " + graphHeight + " 0"
       })
       .appendTo('#' + animal + ' .vote-graph');
-
-  }
-
-  function onUsers(cb){
-    userslistener = cb;
   }
 
   window.voting = {
@@ -133,7 +110,6 @@
     getVotes: getVotes,
     onVotesUpdate: onVotesUpdate,
     didVote: didVote,
-    onUsers: onUsers,
     resetVotes: resetVotes
   }
 })();
