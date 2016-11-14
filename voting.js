@@ -94,9 +94,9 @@
     document.body.querySelector("#dog .vote-graph").setAttribute('scale', {x: 1, y: dogHeight, z: 0});
     document.body.querySelector("#turtle .vote-graph").setAttribute('scale', {x: 1, y: turtleHeight, z: 0});
 
-    document.body.querySelector("#bear .vote-percent").setAttribute('bmfont-text', "text:" + voteTotals.percent.bear + "%; fnt:testFont.fnt; fntImage:testFont.png; color: #fff;");
-    document.body.querySelector("#dog .vote-percent").setAttribute('bmfont-text', "text:" + voteTotals.percent.dog + "%; fnt:testFont.fnt; fntImage:testFont.png; color: #fff;");
-    document.body.querySelector("#turtle .vote-percent").setAttribute('bmfont-text', "text:" + voteTotals.percent.turtle + "%; fnt:testFont.fnt; fntImage:testFont.png; color: #fff;");
+    document.body.querySelector("#bear .vote-percent").setAttribute('bmfont-text', "text:" + voteTotals.percent.bear + "%; fnt:testFont.fnt; fntImage:testFont.png; color: #4d4f51;");
+    document.body.querySelector("#dog .vote-percent").setAttribute('bmfont-text', "text:" + voteTotals.percent.dog + "%; fnt:testFont.fnt; fntImage:testFont.png; color: #4d4f51;");
+    document.body.querySelector("#turtle .vote-percent").setAttribute('bmfont-text', "text:" + voteTotals.percent.turtle + "%; fnt:testFont.fnt; fntImage:testFont.png; color: #4d4f51;");
   }
 
   function onUsers(cb){
