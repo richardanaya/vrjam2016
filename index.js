@@ -5,12 +5,12 @@ function activateScene() {
 }
 
 var musicSound = new Howl({
-  src: ['music.mp3']
+  src: ['assets/music.mp3']
 });
 musicSound.play()
 
 var voteSound = new Howl({
-  src: ['vote.mp3']
+  src: ['assets/vote.mp3']
 });
 
 var btns = document.querySelectorAll('.vote-button');
