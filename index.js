@@ -1,8 +1,21 @@
 
 function activateScene() {
   window.voting.initVoting();
-  candidateChatter();
+  window.candidates.initChatter();
 }
+
+document.getElementById("enter-button").addEventListener('click', function() {
+  activateScene();
+  // remove the overlay div
+  document.getElementById("overlay").remove();
+  // change camera position and remove animations
+  document.getElementById("camera").setAttribute('position', '0 -0.65 1.2');
+  document.getElementById("camera").setAttribute('rotation', '0 0 0');
+  document.getElementById("camera-animation-1").remove();
+  document.getElementById("camera-animation-2").remove();
+  // add the cardboard icon
+  document.getElementById("scene").removeAttribute("vr-mode-ui");
+});
 
 var musicSound = new Howl({
   src: ['assets/music.mp3']
@@ -22,47 +35,6 @@ for(var i=0;i<btns.length;i++){
       voting.vote(e.target.parentNode.id);
     }
   })
-}
-
-//Candidate Facts
-	var counter = document.querySelector("#turtle-facts-text");
-	var chatCounter = document.querySelector("#chat-box");
-	var myIndex = 1;
-	var turtleFacts = ["Bears are\n\nstrong!", "Man's best\n\nfriend!", "Turtle\n\n power!"];
-	var chatBoxPosition = ["-7 4.1 -0.5", "-2.2 1 -0.5", "-1 0.4 -0.5"];
-	var chatTextPosition = ["-9.2 3.55 -1", "-4.5 .65 -1", "-3.2 0 -1"];
-
-var i = 0;
-
-function candidateChatter () {
-	setTimeout(function () {
-	var fact = turtleFacts[i];
-		var position = chatTextPosition[i];
-		var bubblePosition = chatBoxPosition[i];
-		counter.removeAttribute("bmfont-text", "text:");
-		counter.setAttribute("bmfont-text", "text:" + fact + "; fnt:testFont.fnt; fntImage:testFont.png; align:center;");
-		counter.setAttribute("scale", ".8 .8 .8")
-		counter.setAttribute("position", position);
-		chatCounter.setAttribute("material", "color: #429ef4;");
-		chatCounter.setAttribute("obj-model", "obj: #chat-obj;");
-		chatCounter.setAttribute("scale", "1 1 .9");
-		chatCounter.setAttribute("position", bubblePosition);
-		i++;
-		if (i < 3) {
-			candidateChatter();
-		} else {
-			clearChatter();
-		}
-	}, 3500)
-}
-
-function clearChatter() {
-	setTimeout(function () {
-		var elemChat = document.getElementById("chat-box");
- 		elemChat.parentElement.removeChild(elemChat);
-		var elemText = document.getElementById("turtle-facts-text");
- 		elemText.parentElement.removeChild(elemText);
-	}, 3500);
 }
 
 document.body.querySelector("#bear").addEventListener("model-loaded",function(e){
@@ -109,16 +81,3 @@ var clock = new THREE.Clock();
 window.setInterval(function(){
     THREE.AnimationHandler.update( clock.getDelta()/60 );
 },1000/60)
-
-document.getElementById("enter-button").addEventListener('click', function() {
-  activateScene();
-  // remove the overlay div
-  document.getElementById("overlay").remove();
-  // change camera position and remove animations
-  document.getElementById("camera").setAttribute('position', '0 -0.65 1.2');
-  document.getElementById("camera").setAttribute('rotation', '0 0 0');
-  document.getElementById("camera-animation-1").remove();
-  document.getElementById("camera-animation-2").remove();
-  // add the cardboard icon
-  document.getElementById("scene").removeAttribute("vr-mode-ui");
-});
