@@ -21,36 +21,42 @@
 
   var users = 0;
 
-  if(window.firebase){
-    votesRef = firebase.database().ref('votes');
-    usersRef = firebase.database().ref('users');
+  function initVoting() {
+    if (window.firebase) {
+      onVotesUpdate(getVotes());
 
-    // add listener to Firebase votes update
-    votesRef.on('value', function(snapshot) {
-      votes = snapshot.val();
-      onVotesUpdate(votes);
-    });
+      votesRef = firebase.database().ref('votes');
+      usersRef = firebase.database().ref('users');
 
-    // add listener to Firebase users update
-    usersRef.once('value', function(snapshot) {
-      var c = snapshot.val();
-      users = c;
-      usersRef.set(c+1);
-    });
-    usersRef.on('value', function(snapshot) {
-      var c = snapshot.val();
-      if(userslistener){
-        userslistener(c);
-      }
-    });
+      // add listener to Firebase votes update
+      votesRef.on('value', function(snapshot) {
+        votes = snapshot.val();
+        onVotesUpdate(votes);
+      });
+
+      // add listener to Firebase users update
+      usersRef.once('value', function(snapshot) {
+        var c = snapshot.val();
+        users = c;
+        usersRef.set(c+1);
+      });
+      usersRef.on('value', function(snapshot) {
+        var c = snapshot.val();
+        if(userslistener){
+          userslistener(c);
+        }
+      });
+    }
   }
 
   function vote(animal){
     if(voted){return;}
 
     voted = true;
+
     document.body.querySelector("#ivoted-obj").setAttribute("visible",true)
-    if(window.firebase){
+
+    if (window.firebase) {
       var localVotes = getVotes();
       localVotes[animal]++;
       votesRef.set(localVotes);
@@ -63,6 +69,16 @@
 
   function getVotes(){
     return voteCounts;
+  }
+
+  function resetVotes(){
+    if (window.firebase){
+      votesRef.set({
+        bear: 0,
+        dog: 0,
+        turtle: 0
+      });
+    }
   }
 
   function onVotesUpdate(votes){
@@ -94,9 +110,11 @@
     document.body.querySelector("#dog .vote-graph").setAttribute('scale', {x: 1, y: dogHeight, z: 0});
     document.body.querySelector("#turtle .vote-graph").setAttribute('scale', {x: 1, y: turtleHeight, z: 0});
 
-    document.body.querySelector("#bear .vote-percent").setAttribute('bmfont-text', "text:" + voteTotals.percent.bear + "%; fnt:testFont.fnt; fntImage:testFont.png; color: #4d4f51;");
-    document.body.querySelector("#dog .vote-percent").setAttribute('bmfont-text', "text:" + voteTotals.percent.dog + "%; fnt:testFont.fnt; fntImage:testFont.png; color: #4d4f51;");
-    document.body.querySelector("#turtle .vote-percent").setAttribute('bmfont-text', "text:" + voteTotals.percent.turtle + "%; fnt:testFont.fnt; fntImage:testFont.png; color: #4d4f51;");
+    if (totalVotes) {
+      document.body.querySelector("#bear .vote-percent").setAttribute('bmfont-text', "text:" + voteTotals.percent.bear + "%; fnt:testFont.fnt; fntImage:testFont.png; color: #4d4f51;");
+      document.body.querySelector("#dog .vote-percent").setAttribute('bmfont-text', "text:" + voteTotals.percent.dog + "%; fnt:testFont.fnt; fntImage:testFont.png; color: #4d4f51;");
+      document.body.querySelector("#turtle .vote-percent").setAttribute('bmfont-text', "text:" + voteTotals.percent.turtle + "%; fnt:testFont.fnt; fntImage:testFont.png; color: #4d4f51;");
+    }
   }
 
   function onUsers(cb){
@@ -104,10 +122,12 @@
   }
 
   window.voting = {
-    vote:vote,
-    getVotes:getVotes,
-    onVotesUpdate:onVotesUpdate,
-    didVote:didVote,
-    onUsers:onUsers
+    initVoting: initVoting,
+    vote: vote,
+    getVotes: getVotes,
+    onVotesUpdate: onVotesUpdate,
+    didVote: didVote,
+    onUsers: onUsers,
+    resetVotes: resetVotes
   }
 })();

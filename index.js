@@ -1,4 +1,6 @@
+
 function activateScene() {
+  window.voting.initVoting();
   candidateChatter();
 }
 
