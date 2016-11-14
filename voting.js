@@ -23,8 +23,6 @@
 
   function initVoting() {
     if (window.firebase) {
-      onVotesUpdate(getVotes());
-
       votesRef = firebase.database().ref('votes');
       usersRef = firebase.database().ref('users');
 
@@ -98,23 +96,31 @@
   }
 
   function updateVotesUI(){
-    var votes = voteCounts;
-    var MAX_HEIGHT = 3;
-    var totalVotes = votes.bear + votes.dog + votes.turtle;
+    updateGraph('bear');
+    updateGraph('dog');
+    updateGraph('turtle');
 
-    var bearHeight = votes.bear / totalVotes * MAX_HEIGHT;
-    var dogHeight = votes.dog / totalVotes * MAX_HEIGHT;
-    var turtleHeight = votes.turtle / totalVotes * MAX_HEIGHT;
-
-    document.body.querySelector("#bear .vote-graph").setAttribute('scale', {x: 1, y: bearHeight, z: 0});
-    document.body.querySelector("#dog .vote-graph").setAttribute('scale', {x: 1, y: dogHeight, z: 0});
-    document.body.querySelector("#turtle .vote-graph").setAttribute('scale', {x: 1, y: turtleHeight, z: 0});
-
-    if (totalVotes) {
+    if (voteTotals.totalVotes) {
       document.body.querySelector("#bear .vote-percent").setAttribute('bmfont-text', "text:" + voteTotals.percent.bear + "%; fnt:testFont.fnt; fntImage:testFont.png; color: #4d4f51;");
       document.body.querySelector("#dog .vote-percent").setAttribute('bmfont-text', "text:" + voteTotals.percent.dog + "%; fnt:testFont.fnt; fntImage:testFont.png; color: #4d4f51;");
       document.body.querySelector("#turtle .vote-percent").setAttribute('bmfont-text', "text:" + voteTotals.percent.turtle + "%; fnt:testFont.fnt; fntImage:testFont.png; color: #4d4f51;");
     }
+  }
+
+  function updateGraph(animal){
+    var MAX_HEIGHT = 3;
+    var graphHeight = voteCounts[animal] / voteTotals.totalVotes * MAX_HEIGHT;
+
+    $('#' + animal + ' .vote-graph a-animation').remove();
+    $('<a-animation>')
+      .attr({
+        "attribute": "scale",
+        "dur": "2000",
+        "fill": "forwards",
+        "to": "1 " + graphHeight + " 0"
+      })
+      .appendTo('#' + animal + ' .vote-graph');
+
   }
 
   function onUsers(cb){
