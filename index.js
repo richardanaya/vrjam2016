@@ -29,8 +29,8 @@ for(var i=0;i<btns.length;i++){
 	var chatCounter = document.querySelector("#chat-box");
 	var myIndex = 1;
 	var turtleFacts = ["Bears are\n\nstrong!", "Man's best\n\nfriend!", "Turtle\n\n power!"];
-	var chatBoxPosition = ["-8.7 4 -1", "-2.2 1 -1", "-1 0.4 -1"];
-	var chatTextPosition = ["-10.1 3.2 0", "-4.5 .7 0", "-3.6 0.3 0"];
+	var chatBoxPosition = ["-7 4.1 -0.5", "-2.2 1 -0.5", "-1 0.4 -0.5"];
+	var chatTextPosition = ["-9.2 3.55 -1", "-4.5 .65 -1", "-3.2 0 -1"];
 
 var i = 0;
 
@@ -115,7 +115,7 @@ document.getElementById("enter-button").addEventListener('click', function() {
   // remove the overlay div
   document.getElementById("overlay").remove();
   // change camera position and remove animations
-  document.getElementById("camera").setAttribute('position', '0 -.65 .7');
+  document.getElementById("camera").setAttribute('position', '0 -0.65 1.2');
   document.getElementById("camera").setAttribute('rotation', '0 0 0');
   document.getElementById("camera-animation-1").remove();
   document.getElementById("camera-animation-2").remove();
