@@ -34,7 +34,8 @@
 
     voted = true;
 
-    document.body.querySelector("#ivoted-obj").setAttribute("visible",true)
+    document.body.querySelector("#i-voted").style.display = 'block';
+    // document.body.querySelector("#ivoted-obj").setAttribute("visible",true)
 
     if (window.firebase) {
       var localVotes = getVotes();
@@ -81,12 +82,6 @@
     updateGraph('bear');
     updateGraph('dog');
     updateGraph('turtle');
-
-    if (voteTotals.totalVotes) {
-      document.body.querySelector("#bear .vote-percent").setAttribute('bmfont-text', "text:" + voteTotals.percent.bear + "%; fnt:testFont.fnt; fntImage:testFont.png; color: #fff;");
-      document.body.querySelector("#dog .vote-percent").setAttribute('bmfont-text', "text:" + voteTotals.percent.dog + "%; fnt:testFont.fnt; fntImage:testFont.png; color: #fff;");
-      document.body.querySelector("#turtle .vote-percent").setAttribute('bmfont-text', "text:" + voteTotals.percent.turtle + "%; fnt:testFont.fnt; fntImage:testFont.png; color: #fff;");
-    }
   }
 
   function updateGraph(animal){
@@ -102,6 +97,13 @@
         "to": "1 " + graphHeight + " 0"
       })
       .appendTo('#' + animal + ' .vote-graph');
+
+      // set the percentage text if there's a valid percentage
+      if (voteTotals.percent[animal]){
+        document.body.querySelector("#" + animal + " .vote-percent").setAttribute('bmfont-text', "text:" + voteTotals.percent[animal] + "%; fnt:testFont.fnt; fntImage:testFont.png; color: #fff;");
+      } else {
+        document.body.querySelector("#" + animal + " .vote-percent").removeAttribute('bmfont-text');
+      }
   }
 
   window.voting = {
